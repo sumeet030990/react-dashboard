@@ -1,0 +1,86 @@
+.navigation{
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  background-color: var(--dark-background);
+  border-left: 10px solid var(--dark-background);
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.active-container {
+  width: 66px;
+ }
+.navigation ul {
+  width: 100%;
+  padding-left: 0%;
+}
+
+.navigation ul li{
+  position: relative;
+  list-style: none;
+  margin-bottom: 5%;
+  border-top-left-radius: 30px ;
+  border-bottom-left-radius: 30px ;
+  width: 100%;
+}
+.navigation ul li:hover,
+.navigation ul .active
+{
+  background-color: var(--white);
+}
+
+.navigation ul li a {
+  color: var(--white);
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+}
+
+.navigation ul li:hover a,
+.navigation ul .active a{
+  color: var(--dark-background);
+}
+
+.navigation ul li:hover a::before,
+.navigation ul .active a::before
+{
+  content: '';
+  position: absolute;
+  background: transparent;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+}
+
+.navigation ul li:hover a::after,
+.navigation ul .active a::after {
+  content: '';
+  position: absolute;
+  background: transparent;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+}
+
+.icon{
+  min-width: 45px;
+  line-height: 45px;
+  text-align: center;
+}
+
+.icon svg{
+  font-size: 1 rem;
+}
+
+.title {
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
