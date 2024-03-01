@@ -10,7 +10,8 @@
   --blue: #287bff;
   --grey: #f5f5f5;
   --dark-background: #4b545c;
-  --white: #ffffff
+  --white: #ffffff;
+  --mobile-font-size: 12px;
 }
 
 body {
