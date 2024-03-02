@@ -9,8 +9,13 @@ function App() {
   return (
     <div className="App">
       <Navbar navbarToggleClick={navbarToggleClick} setNavbarToggleClick={setNavbarToggleClick} />
-      <div>
-        <Sidebar navbarToggleClick={navbarToggleClick} />
+      <div className="main-section">
+        <div>
+          <Sidebar navbarToggleClick={navbarToggleClick} />
+        </div>
+        <div className={`main-container ${navbarToggleClick ? 'minimized-navbar' : ''}`}>
+          <div className="container m-2 full-height">Container</div>
+        </div>
       </div>
     </div>
   );
