@@ -2,7 +2,24 @@
   display: flex;
   flex-direction: column;
 }
-.main-section{
+.main-section {
   display: flex;
   height: calc(100vh - var(--nav-bar-height));
+}
+
+.main-container {
+  position: relative;
+  width: 100vw;
+  background-color: var(--background-color);
+  transition: all 2.5s ease;
+}
+
+.main-container.minimized-navbar {
+  margin-left: -230px;
+}
+
+.container {
+  margin: 10px;
+  max-width: 100%;
+  padding-right: 18px;
 }

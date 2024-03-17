@@ -15,9 +15,9 @@
   --dark-background: #11101d;
   --white-color: #ffffff;
   --mobile-font-size: 12px;
-  ----bs-body-bg : #efeeee;
+  --background-color : #efeeee;
   --nav-bar-height: 40px;
-  --sidebar-width: 250px
+  --sidebar-width: 300px
 }
 
 body {
@@ -27,5 +27,5 @@ body {
 }
 
 html body {
-  background-color: #efeeee ;
+  background-color: var(--background-color);
 }

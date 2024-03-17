@@ -22,3 +22,7 @@
   justify-content: flex-end;
   flex: 1;
 }
+
+.navbar-left-container svg{
+  cursor: pointer;
+}

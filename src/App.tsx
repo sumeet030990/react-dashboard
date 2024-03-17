@@ -16,7 +16,7 @@ function App() {
         <div className="main-section">
           <Sidebar navbarToggleClick={navbarToggleClick} />
           <div className={`main-container ${navbarToggleClick ? 'minimized-navbar' : ''}`}>
-            <div className="container m-2 full-height">
+            <div className="container">
               <Routes>
                 <Route path="/" element={<Dashboard />}></Route>
               </Routes>
