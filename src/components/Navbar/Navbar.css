@@ -1,1 +1,24 @@
 /* Navbar.css */
+.navbar-container{
+  width: 100vw;
+  height:var(--nav-bar-height);
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+}
+.navbar-left-container{
+  display: flex;
+  margin-left: 5px;
+  align-items: center;
+  flex: 1
+}
+
+.company-name {
+  margin-left: 5%;
+}
+
+.navbar-right-container {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}

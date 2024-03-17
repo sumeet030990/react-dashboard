@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Dashboard from './components/Dashboard/Dashboard';
 // https://www.youtube.com/watch?v=wEfaoAa99XY&t=112s&ab_channel=CodingLab
+// https://www.youtube.com/watch?v=ES8vJcUqE7s&ab_channel=CodingLab
 function App() {
   const [navbarToggleClick, setNavbarToggleClick] = useState(false);
   return (
@@ -13,9 +14,7 @@ function App() {
       <div className="App">
         <Navbar navbarToggleClick={navbarToggleClick} setNavbarToggleClick={setNavbarToggleClick} />
         <div className="main-section">
-          <div>
-            <Sidebar navbarToggleClick={navbarToggleClick} />
-          </div>
+          <Sidebar navbarToggleClick={navbarToggleClick} />
           <div className={`main-container ${navbarToggleClick ? 'minimized-navbar' : ''}`}>
             <div className="container m-2 full-height">
               <Routes>

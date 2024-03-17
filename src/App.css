@@ -1,0 +1,8 @@
+.App {
+  display: flex;
+  flex-direction: column;
+}
+.main-section{
+  display: flex;
+  height: calc(100vh - var(--nav-bar-height));
+}
