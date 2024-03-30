@@ -1,9 +1,9 @@
-.sidebar-container{
+.sidebar-container {
   width: var(--sidebar-width);
   background-color: var(--dark-background);
 }
 .nav-links-ul {
-  padding: 30px 0 0 0;
+  padding: 15px 0 0 0;
 }
 .nav-links-ul li {
   list-style: none;
@@ -13,7 +13,7 @@
 .nav-links-ul li:hover {
   background-color: gray;
 }
-.nav-links-ul li svg{
+.nav-links-ul li svg {
   height: 20px;
   min-width: 60px;
   text-align: center;
@@ -23,4 +23,40 @@
 .nav-links-ul li a {
   text-decoration: none;
   color: var(--white-color);
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.profile-section.minimized-navbar{
+  display: inline-flex;
+  margin-left: 4%;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: var(--transition-effect);
+}
+
+.profile-image.minimized-navbar {
+  width: 40px;
+  height: 40px;
+}
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+  margin-left: 5%;
+}
+.profile-details p {
+  color: var(--white-color);
+  font-size: 10px;
+  line-height: 1px;
 }

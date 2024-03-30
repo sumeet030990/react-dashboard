@@ -17,7 +17,8 @@
   --mobile-font-size: 12px;
   --background-color : #efeeee;
   --nav-bar-height: 40px;
-  --sidebar-width: 300px
+  --sidebar-width: 200px;
+  --transition-effect: all 0.5s ease;
 }
 
 body {

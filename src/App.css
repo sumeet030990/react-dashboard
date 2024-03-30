@@ -11,15 +11,22 @@
   position: relative;
   width: 100vw;
   background-color: var(--background-color);
-  transition: all 2.5s ease;
+  transition: var(--transition-effect);
 }
 
 .main-container.minimized-navbar {
-  margin-left: -230px;
+  margin-left: -140px;
+}
+.main-container.no-navbar {
+  margin-left: -200px;
 }
 
 .container {
   margin: 10px;
   max-width: 100%;
   padding-right: 18px;
+}
+
+.container.minimized-navbar, .container.no-navbar {
+  max-width: 1400px;
 }

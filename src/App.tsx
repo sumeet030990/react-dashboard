@@ -5,18 +5,20 @@ import Sidebar from './components/Sidebar/Sidebar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Dashboard from './components/Dashboard/Dashboard';
+import { NAVBAR_MODES } from './utils/constants';
 // https://www.youtube.com/watch?v=wEfaoAa99XY&t=112s&ab_channel=CodingLab
 // https://www.youtube.com/watch?v=ES8vJcUqE7s&ab_channel=CodingLab
 function App() {
-  const [navbarToggleClick, setNavbarToggleClick] = useState(false);
+  const [navbarMode, setNavbarMode] = useState(0);
+  console.log('navbarMode: ', navbarMode);
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbar navbarToggleClick={navbarToggleClick} setNavbarToggleClick={setNavbarToggleClick} />
+        <Navbar setNavbarMode={setNavbarMode} />
         <div className="main-section">
-          <Sidebar navbarToggleClick={navbarToggleClick} />
-          <div className={`main-container ${navbarToggleClick ? 'minimized-navbar' : ''}`}>
-            <div className="container">
+          <Sidebar navbarMode={navbarMode} />
+          <div className={`main-container ${NAVBAR_MODES[navbarMode]}`}>
+            <div className={`container ${NAVBAR_MODES[navbarMode]}`}>
               <Routes>
                 <Route path="/" element={<Dashboard />}></Route>
               </Routes>
