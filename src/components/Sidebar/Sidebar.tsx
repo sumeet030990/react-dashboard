@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLayerGroup } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faCoins, faHouse, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { NAVBAR_MODES } from '../../utils/constants';
 
 type SidebarProps = {
@@ -23,22 +23,26 @@ function Sidebar({ navbarMode }: SidebarProps) {
           <p>Edit Profile</p>
         </div>
       </div>
-      <ul className="nav-links-ul">
+      <ul className={`nav-links-ul ${NAVBAR_MODES[navbarMode]}`}>
         <li>
-          <FontAwesomeIcon icon={faLayerGroup} />
+          <FontAwesomeIcon icon={faHouse} />
           <Link to={''}>Dashboard</Link>
+          <span className="tooltip-menu">Dashboard</span>
         </li>
         <li>
-          <FontAwesomeIcon icon={faLayerGroup} />
+          <FontAwesomeIcon icon={faBook} />
           <Link to={''}>Sauda Book</Link>
+          <span className="tooltip-menu">Sauda Book</span>
         </li>
         <li>
-          <FontAwesomeIcon icon={faLayerGroup} />
+          <FontAwesomeIcon icon={faCoins} />
           <Link to={''}>Bills</Link>
+          <span className="tooltip-menu">Bills</span>
         </li>
         <li>
-          <FontAwesomeIcon icon={faLayerGroup} />
+          <FontAwesomeIcon icon={faUsers} />
           <Link to={''}>Users</Link>
+          <span className="tooltip-menu">Users</span>
         </li>
       </ul>
     </div>
