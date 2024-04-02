@@ -6,8 +6,9 @@ import { NAVBAR_MODES } from '../../utils/constants';
 
 type SidebarProps = {
   navbarMode: number;
+  userName: String;
 };
-function Sidebar({ navbarMode }: SidebarProps) {
+function Sidebar({ navbarMode, userName }: SidebarProps) {
   return (
     <div className="sidebar-container">
       <div className={`profile-section ${NAVBAR_MODES[navbarMode]}`}>
@@ -19,7 +20,7 @@ function Sidebar({ navbarMode }: SidebarProps) {
           />
         </div>
         <div className="profile-details">
-          <p>Sumeet Jadhav</p>
+          <p>{userName}</p>
           <p>Edit Profile</p>
         </div>
       </div>
@@ -49,4 +50,8 @@ function Sidebar({ navbarMode }: SidebarProps) {
   );
 }
 
+Sidebar.defaultProps = {
+  navbarMode: 0,
+  userName: '',
+};
 export default Sidebar;

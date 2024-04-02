@@ -1,12 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Navbar.css';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import { isMobile } from 'react-device-detect';
+import { Button } from 'react-bootstrap';
 
 type NavbarProps = {
+  companyName: String;
   setNavbarMode: React.Dispatch<React.SetStateAction<number>>;
 };
-function Navbar({ setNavbarMode }: NavbarProps) {
+function Navbar({ companyName, setNavbarMode }: NavbarProps) {
   const handleNavbarToggleClick = () => {
     if (isMobile) {
       // in mobile view we are not going to show the minimizied version of navbar
@@ -25,14 +27,23 @@ function Navbar({ setNavbarMode }: NavbarProps) {
   return (
     <nav className="navbar-container">
       <span className="navbar-left-container">
-        <FontAwesomeIcon icon={faBars} onClick={handleNavbarToggleClick} />
+        <FontAwesomeIcon icon={faBars} onClick={handleNavbarToggleClick} data-testid="navbar-icon" />
         <div className="company-name">
-          <span className="navbar-right-container">Company Name</span>
+          <span className="navbar-right-container">{companyName}</span>
         </div>
       </span>
-      <span className="navbar-right-container">right</span>
+      <span className="navbar-right-container">
+        <div className="logout">
+          <Button variant="outline-danger" size="sm">
+            <FontAwesomeIcon icon={faPowerOff} />
+          </Button>
+        </div>
+      </span>
     </nav>
   );
 }
 
+Navbar.defaultProps = {
+  companyName: '',
+};
 export default Navbar;

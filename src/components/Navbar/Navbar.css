@@ -26,3 +26,7 @@
 .navbar-left-container svg{
   cursor: pointer;
 }
+
+.logout{
+  margin: 1%;
+}

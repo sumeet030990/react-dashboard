@@ -11,13 +11,12 @@ import { isMobile } from 'react-device-detect';
 // https://www.youtube.com/watch?v=ES8vJcUqE7s&ab_channel=CodingLab
 function App() {
   const [navbarMode, setNavbarMode] = useState(isMobile ? 2 : 0);
-  console.log('navbarMode: ', navbarMode);
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbar setNavbarMode={setNavbarMode} />
+        <Navbar companyName={'Company Name'} setNavbarMode={setNavbarMode} />
         <div className="main-section">
-          <Sidebar navbarMode={navbarMode} />
+          <Sidebar navbarMode={navbarMode} userName={'Sumeet Jadhav'} />
           <div className={`main-container ${NAVBAR_MODES[navbarMode]}`}>
             <div className={`container ${NAVBAR_MODES[navbarMode]}`}>
               <Routes>
