@@ -42,7 +42,7 @@ function Sidebar({ navbarMode, userName }: SidebarProps) {
         </li>
         <li>
           <FontAwesomeIcon icon={faUsers} />
-          <Link to={''}>Users</Link>
+          <Link to={'/users'}>Users</Link>
           <span className="tooltip-menu">Users</span>
         </li>
       </ul>
