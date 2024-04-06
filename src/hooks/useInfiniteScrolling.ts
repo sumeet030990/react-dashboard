@@ -19,8 +19,8 @@ export const useInfiniteScrolling = ({
   const { data, fetchNextPage, isFetching, isLoading } = useInfiniteQuery({
     queryKey: [queryKey, sorting],
     queryFn: async ({ pageParam = 0 }) => {
-      const start = (pageParam as number) * fetchSize;
-      const fetchedData = await fetchData(start, fetchSize, sorting); //pretend api call
+      const pageNumber = ++(pageParam as number);
+      const fetchedData = await fetchData(pageNumber, fetchSize, sorting); //pretend api call
       return fetchedData;
     },
     initialPageParam: 0,

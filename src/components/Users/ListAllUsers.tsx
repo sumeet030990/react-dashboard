@@ -14,32 +14,22 @@ const ListAllUsers = () => {
       accessorKey: 'id',
     },
     {
-      accessorKey: 'firstName',
+      accessorKey: 'name',
       cell: (info) => info.getValue(),
     },
     {
-      accessorFn: (row) => row.lastName,
-      id: 'lastName',
+      id: 'login',
       cell: (info) => info.getValue(),
     },
     {
-      accessorKey: 'age',
+      accessorKey: 'roles.name',
     },
     {
-      accessorKey: 'visits',
+      accessorKey: 'customers.name',
     },
     {
-      accessorKey: 'status',
+      accessorKey: 'enabled',
       header: 'Status',
-    },
-    {
-      accessorKey: 'progress',
-      header: 'Profile Progress',
-    },
-    {
-      accessorKey: 'createdAt',
-      header: 'Created At',
-      cell: (info) => info.getValue<Date>().toLocaleString(),
     },
   ];
 
