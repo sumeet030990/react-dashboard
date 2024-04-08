@@ -5,8 +5,9 @@ import { SortingState } from '@tanstack/react-table';
 type InfiniteQueryProps = {
   queryKey: string;
   fetchSize?: number;
-  fetchData: (start: number, size: number, sorting: SortingState) => Promise<any>;
+  fetchData: (start: number, size: number, sorting: SortingState, globalFilter: string) => Promise<any>;
   sorting: SortingState;
+  globalFilter: string;
 };
 
 export const useInfiniteScrolling = ({
@@ -14,13 +15,14 @@ export const useInfiniteScrolling = ({
   fetchSize = DATATABLE_FETCH_SIZE,
   fetchData,
   sorting,
+  globalFilter,
 }: InfiniteQueryProps) => {
   //react-query has a useInfiniteQuery hook that is perfect for this use case
   const { data, fetchNextPage, isFetching, isLoading } = useInfiniteQuery({
-    queryKey: [queryKey, sorting],
+    queryKey: [queryKey, sorting, globalFilter],
     queryFn: async ({ pageParam = 0 }) => {
       const pageNumber = ++(pageParam as number);
-      const fetchedData = await fetchData(pageNumber, fetchSize, sorting); //pretend api call
+      const fetchedData = await fetchData(pageNumber, fetchSize, sorting, globalFilter); //pretend api call
       return fetchedData;
     },
     initialPageParam: 0,

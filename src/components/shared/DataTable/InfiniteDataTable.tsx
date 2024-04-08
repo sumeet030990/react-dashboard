@@ -5,11 +5,13 @@ import {
   SortingState,
   flexRender,
   getCoreRowModel,
+  getFilteredRowModel,
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table';
 import './InfiniteDataTable.css';
 import { Table as BTable } from 'react-bootstrap';
+import { DebouncedInput } from '../DebouncedInput/DebouncedInput';
 
 type InfiniteDataTableProps = {
   data: any;
@@ -19,7 +21,10 @@ type InfiniteDataTableProps = {
   isLoading: boolean;
   sorting: SortingState;
   setSorting: React.Dispatch<React.SetStateAction<SortingState>>;
+  globalFilter: string;
+  setGlobalFilter: React.Dispatch<React.SetStateAction<string>>;
 };
+
 function InfiniteDataTable({
   data,
   columns,
@@ -28,6 +33,8 @@ function InfiniteDataTable({
   isLoading,
   sorting,
   setSorting,
+  globalFilter,
+  setGlobalFilter,
 }: InfiniteDataTableProps) {
   const flatData = useMemo(() => data?.pages?.flatMap((page: any) => page.data?.body?.data) ?? [], [data]);
   const totalDBRowCount = data?.pages?.[0]?.data?.body?.total_records ?? 0;
@@ -48,11 +55,14 @@ function InfiniteDataTable({
   const table = useReactTable({
     data: flatData,
     columns,
-    state: { sorting },
-    getCoreRowModel: getCoreRowModel(),
+    state: {
+      sorting,
+    },
+    getFilteredRowModel: getFilteredRowModel(),
     getSortedRowModel: getSortedRowModel(),
+    getCoreRowModel: getCoreRowModel(),
     manualSorting: true,
-    debugTable: true,
+    debugTable: false,
   });
 
   const handleSortingChange: OnChangeFn<SortingState> = useCallback(
@@ -73,6 +83,14 @@ function InfiniteDataTable({
   const headerGroupLength = table.getHeaderGroups()[table.getHeaderGroups().length - 1].headers.length;
   return (
     <>
+      <div className="search-div">
+        <DebouncedInput
+          value={globalFilter ?? ''}
+          onChange={(value) => setGlobalFilter(String(value))}
+          className="p-2 font-lg shadow border border-block"
+          placeholder="Search all columns..."
+        />
+      </div>
       <div
         onScroll={(e) => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
         style={{

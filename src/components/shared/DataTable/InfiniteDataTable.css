@@ -41,3 +41,12 @@ td {
   display: flex;
   justify-content: space-between;
 }
+
+.search-div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search-div input {
+  margin: 1%;
+}
