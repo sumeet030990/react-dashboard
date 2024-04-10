@@ -2,10 +2,20 @@ import { useState } from 'react';
 
 //3 TanStack Libraries!!!
 import { ColumnDef, SortingState } from '@tanstack/react-table';
-import { Person } from '../../utils/mockData/users';
 import InfiniteDataTable from '../shared/DataTable/InfiniteDataTable';
-import { useAllUsers } from '../../hooks/api/users';
+import { useAllUsers } from '../../hooks/api/users/users';
 import { Card, CardBody, CardHeader } from 'react-bootstrap';
+
+type Person = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  age: number;
+  visits: number;
+  progress: number;
+  status: 'relationship' | 'complicated' | 'single';
+  createdAt: Date;
+};
 
 const ListAllUsers = () => {
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -39,7 +49,6 @@ const ListAllUsers = () => {
 
   //react-query has a useInfiniteQuery hook that is perfect for this use case
   const { data, fetchNextPage, isFetching, isLoading } = useAllUsers({ sorting, globalFilter });
-
   return (
     <Card>
       <CardHeader>Users</CardHeader>

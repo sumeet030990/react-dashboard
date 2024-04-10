@@ -1,7 +1,8 @@
-import { DATATABLE_FETCH_SIZE } from '../../utils/constants';
+import { DATATABLE_FETCH_SIZE } from '../../../utils/constants';
 import { SortingState } from '@tanstack/react-table';
-import { useInfiniteScrolling } from '../useInfiniteScrolling';
+import { useInfiniteScrolling } from '../../useInfiniteScrolling';
 import axios from 'axios';
+import { getUrlWithPaginationParam } from '../../../utils/helpers';
 
 type useAllUsersProps = {
   sorting: SortingState;
@@ -10,11 +11,14 @@ type useAllUsersProps = {
 };
 
 const fetchAllUsers = async (pageNumber: number, size: number, sorting: SortingState, globalFilter: string = '') => {
-  const result = await axios.get(
-    `http://localhost:9000/api/users?pageNumber=${pageNumber}&pageSize=${size}&sort_field=${
-      sorting[0]?.id || 'id'
-    }&sort_order=${sorting[0]?.desc ? 'desc' : 'asc'}&status_filter=all&search=${globalFilter}`
-  );
+  const userUrl = getUrlWithPaginationParam('http://localhost:9000/api/users', {
+    pageNumber,
+    size,
+    sorting,
+    globalFilter,
+  });
+
+  const result = await axios.get(userUrl);
 
   return result;
 };

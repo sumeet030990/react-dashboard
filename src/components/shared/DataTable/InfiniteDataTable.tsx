@@ -36,8 +36,8 @@ function InfiniteDataTable({
   globalFilter,
   setGlobalFilter,
 }: InfiniteDataTableProps) {
-  const flatData = useMemo(() => data?.pages?.flatMap((page: any) => page.data?.body?.data) ?? [], [data]);
-  const totalDBRowCount = data?.pages?.[0]?.data?.body?.total_records ?? 0;
+  const flatData = useMemo(() => data?.pages?.flatMap((page: any) => page?.data) ?? [], [data]);
+  const totalDBRowCount = data?.pages?.[0]?.total_records ?? 0;
   const totalFetched = flatData.length;
 
   const fetchMoreOnBottomReached = useCallback(

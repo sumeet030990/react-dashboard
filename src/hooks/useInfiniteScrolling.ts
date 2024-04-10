@@ -23,10 +23,12 @@ export const useInfiniteScrolling = ({
     queryFn: async ({ pageParam = 0 }) => {
       const pageNumber = ++(pageParam as number);
       const fetchedData = await fetchData(pageNumber, fetchSize, sorting, globalFilter); //pretend api call
-      return fetchedData;
+      return fetchedData?.data?.body;
     },
     initialPageParam: 0,
-    getNextPageParam: (_lastGroup, groups) => groups.length,
+    getNextPageParam: (_lastGroup, groups) => {
+      return groups.length;
+    },
     refetchOnWindowFocus: false,
     placeholderData: keepPreviousData,
   });
